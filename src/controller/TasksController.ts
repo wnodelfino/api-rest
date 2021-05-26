@@ -35,7 +35,6 @@ export const finishedTask = async (request: Request, response: Response) => {
     const task = await getRepository(Tasks).update(id, { finished: true })
 
     if (task.affected === 1) {
-        const taskUpdated = await getRepository(Tasks).findOne(id)
         return response.json({ message: 'Task finished '})
     }
 
